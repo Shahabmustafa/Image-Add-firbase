@@ -6,6 +6,7 @@ import 'package:cricket/Screen/venue_screen.dart';
 import 'package:cricket/Widget/backgroung_widget.dart';
 import 'package:cricket/Widget/dashboard_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../Widget/custom_appbar.dart';
 
 
@@ -64,19 +65,17 @@ class HomeScreen extends StatelessWidget {
             textTitle: 'Teams',
           ),
           DashboardItem(
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (_){
-                return LiveScreen();
-              }));
+            onTap: ()async{
+             const _url = 'https://www.espncricinfo.com/';
+             await canLaunchUrl(Uri.parse(_url)) ? await launchUrl(Uri.parse(_url)) : throw 'Could not lunch $_url';
             },
             imagePath: 'assets/dashboard/live_score.png',
             textTitle: 'Live Scores',
           ),
           DashboardItem(
-            onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (_){
-                return const HistoryScreen();
-              }));
+            onTap: ()async{
+              const _url = 'https://www.t20worldcup.com/match-highlights';
+              await canLaunchUrl(Uri.parse(_url)) ? await launchUrl(Uri.parse(_url)) : throw 'Could not lunch $_url';
             },
             imagePath: 'assets/dashboard/highlights.png',
             textTitle: 'HighLights',

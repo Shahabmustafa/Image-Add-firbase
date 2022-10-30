@@ -1,4 +1,5 @@
 import 'package:cricket/Utls/app_color.dart';
+import 'package:cricket/Utls/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:cricket/Models/match.dart';
 
@@ -65,9 +66,9 @@ class MatchWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(match.date,style: TextStyle(fontWeight: FontWeight.w600,color: Colors.white,fontSize: 15.0),),
-                      Text(match.group,style: TextStyle(fontWeight: FontWeight.w600,color: Colors.white),),
-                      Text('Date',style: TextStyle(fontWeight: FontWeight.w600,color: Colors.white),),
+                      Text(Helper.getDate(match.date),style: TextStyle(fontWeight: FontWeight.w600,color: Colors.white,fontSize: 15.0),),
+                      Text(Helper.getGMTTime(match.date),style: TextStyle(fontWeight: FontWeight.w600,color: Colors.white),),
+                      Text(Helper.getLocalTime(match.date),style: TextStyle(fontWeight: FontWeight.w600,color: Colors.white),),
                       Text(match.venue,style: TextStyle(fontWeight: FontWeight.w600,color: Colors.white),),
                     ],
                   ),

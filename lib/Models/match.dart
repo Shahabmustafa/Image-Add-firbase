@@ -2,7 +2,7 @@ class Match{
   late String date;
   late String teamOne;
   late String teamTwo;
-  late  String flagOne;
+  late String flagOne;
   late String flagTwo;
   late String group;
   late String venue;
